@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大谷祭 2025 - 帯広大谷高等学校</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:"ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
+            background: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        } */
+
+        header {
+            /* ヘッダーのサイズと背景設定 */
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            
+            /* アニメーションを適用 */
+            animation: headerSlideshow 16s infinite steps(4,end);
+            transition: background-image 1s ease-in-out;
+        }
+
+        /* スライドショーのキーフレーム */
+        @keyframes headerSlideshow {
+            0%, 24.99% { 
+                background-image: url('images/1.JPG');
+            }
+            25%, 49.99% { 
+                background-image: url('images/2.JPG');
+            }
+            50%, 74.99% { 
+                background-image: url('images/3.JPG');
+            }
+            75%, 99.99% { 
+                background-image: url('images/4.JPG');
+            }
+        }
+
+        /* header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: headerShine 4s ease-in-out infinite;
+        }
+        
+
+        @keyframes headerShine {
+            0%, 100% { left: -100%; }
+            50% { left: 100%; }
+        } */
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+
+        header h1,header p, header a, header * {
+            color: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
+
+
+
+        .img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        .festival-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            position: relative;
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        nav {
+            background: #000000;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .nav-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid #2a5298;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #2a5298;
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .nav-btn:hover::before {
+            left: 0;
+        }
+
+        .nav-btn:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(42, 82, 152, 0.3);
+        }
+
+        .nav-btn.active {
+            background: #2a5298;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .nav-btn.active::before {
+            left: 0;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .section {
+            display: none;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            animation: sectionSlideIn 0.8s ease-out;
+        }
+
+        @keyframes sectionSlideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #e8e8e8;
+            position: relative;
+            overflow: hidden;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardReveal 0.8s ease-out forwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.3s; }
+        .card:nth-child(3) { animation-delay: 0.5s; }
+
+        @keyframes cardReveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s ease;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .card h2 {
+            color: #1e3c72;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            position: relative;
+            animation: titleSlide 0.8s ease-out 0.3s both;
+        }
+
+        @keyframes titleSlide {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .day-card {
+            background: linear-gradient(135deg, #2a5298, #1e3c72);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+
+        .schedule-item {
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 25px;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            transform: translateX(-20px);
+            opacity: 0;
+            animation: itemSlideIn 0.6s ease-out forwards;
+        }
+
+        .schedule-item:nth-child(2) { animation-delay: 0.2s; }
+        .schedule-item:nth-child(3) { animation-delay: 0.4s; }
+        .schedule-item:nth-child(4) { animation-delay: 0.6s; }
+        .schedule-item:nth-child(5) { animation-delay: 0.8s; }
+        .schedule-item:nth-child(6) { animation-delay: 1.0s; }
+
+        @keyframes itemSlideIn {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .schedule-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .schedule-item:hover::before {
+            left: 100%;
+        }
+
+        .schedule-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .schedule-time {
+            font-family: "Harucraft",sans-serif;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 2px;
+            color: #FFD700;
+        }
+
+        .schedule-content {
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: bold;
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .festival-item {
+        
+            background: white;
+            font-size: 18px;
+            border: 2px solid #e8e8e8;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            position: relative;
+            transform: scale(0.95);
+            opacity: 0;
+            animation: festivalPop 0.6s ease-out forwards;
+            transition: all 0.3s ease;
+        }
+
+        .festival-item:nth-child(1) { animation-delay: 0.1s; }
+        .festival-item:nth-child(2) { animation-delay: 0.3s; }
+        .festival-item:nth-child(3) { animation-delay: 0.5s; }
+        .festival-item:nth-child(4) { animation-delay: 0.7s; }
+
+        @keyframes festivalPop {
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .festival-item:hover {
+            border-color: #2a5298;
+            transform: scale(1.02);
+            background: #f8f9fa;
+        }
+
+        .festival-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 12px;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            transform: translateX(-10px);
+            opacity: 0;
+            animation: priceSlide 0.5s ease-out forwards;
+        }
+
+        .price-item:nth-child(1) { animation-delay: 0.1s; }
+        .price-item:nth-child(2) { animation-delay: 0.2s; }
+        .price-item:nth-child(3) { animation-delay: 0.3s; }
+        .price-item:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes priceSlide {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .price-item:hover {
+            border-color: #2a5298;
+            background: white;
+            transform: translateX(5px);
+        }
+
+        .price-item strong {
+            color: #1e3c72;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .news-item {
+            background: white;
+            border: 2px solid #e8e8e8;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 6px solid #000000;
+            position: relative;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: newsFloat 0.6s ease-out forwards;
+        }
+
+        .news-item:nth-child(1) { animation-delay: 0.1s; }
+        .news-item:nth-child(2) { animation-delay: 0.3s; }
+        .news-item:nth-child(3) { animation-delay: 0.5s; }
+
+        @keyframes newsFloat {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-left-width: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .news-date {
+            font-size: 1rem;
+            color: #1e3c72;
+            font-weight: bold;
+            margin-bottom: 10px;
+            animation: datePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes datePulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: patternMove 10s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(100px) translateY(100px); }
+        }
+
+        footer {
+            background: #000000;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #2a5298, transparent);
+            animation: footerLine 3s ease-in-out infinite;
+        }
+
+        @keyframes footerLine {
+            0%, 100% { transform: scaleX(0); }
+            50% { transform: scaleX(1); }
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-animate.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                width: 200px;
+            }
+            
+            .card {
+                padding: 25px;
+            }
+
+            .day-card {
+                padding: 20px;
+            }
+        }
+
+
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">大谷祭 2025</h1>
+        <p class="subtitle">帯広大谷高等学校 - 大谷色に染まれ〜Shine like star〜</p>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="showSection('schedule')">日程</button>
+            <button class="nav-btn" onclick="showSection('festival')">縁日</button>
+            <button class="nav-btn" onclick="showSection('news')">お知らせ</button>
+        </div>
+    </nav>
+
+    <main>
+        <section id="schedule" class="section active">
+            <div class="day-card">
+                <h3>📅 7月3日（木）1日目</h3>
+                <div id="day1-schedule">
+                    <div class="schedule-item">
+                        <div class="schedule-time">8:50-9:20</div>
+                        <div class="schedule-content">＜第一体育館＞オープニングセレモニー</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">9:30-12:50</div>
+                        <div class="schedule-content">＜第一体育館＞仮装ダンス（予選）</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">13:10-14:00</div>
+                        <div class="schedule-content">＜第一体育館＞演劇部</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">13:00-15:10</div>
+                        <div class="schedule-content">＜特別教室＞ゲーム大会　＜礼法室＞茶道部お茶会</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">14:20-15:10</div>
+                        <div class="schedule-content">＜第一体育館＞吹奏楽部</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">15:30-16:00</div>
+                        <div class="schedule-content">＜第一体育館＞結果発表</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <h3>📅 7月4日（金）2日目</h3>
+                <div id="day2-schedule">
+                    <div class="schedule-item">
+                        <div class="schedule-time">9:00-11:00</div>
+                        <div class="schedule-content">軽音楽部ライブ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">9:00-13:00</div>
+                        <div class="schedule-content">縁日</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">11:30-13:00</div>
+                        <div class="schedule-content">有志発表</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">13:20-14:40</div>
+                        <div class="schedule-content">仮装ダンス（決勝）</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">15:00-16:00</div>
+                        <div class="schedule-content">フィナーレ</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="festival" class="section">
+            <div class="festival-hero">
+                <h2 class="festival-hero-title">🎪 出店場所</h2>
+        <img class="festival-image" src="./images/map.png" alt="MAP" >
+        <div class="festival-overlay">
+        </div>
+    </div>
+            <div class="card scroll-animate">
+                <h2>🎪 縁日・出店情報</h2>
+            <div class="card scroll-animate">
+                <h2>🏪 クラス別出店一覧</h2>
+                <div class="festival-item">
+                    <div class="festival-title">1-1　大場社長のたこ焼き屋</div>
+                    <div>たこ焼き</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;"> 価格：300円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">1-2　谷山なげなげ屋〜谷あり山あり</div>
+                    <div>輪投げ</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：100円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">1-3　カズエおばさんのベビーカステラ</div>
+                    <div>ベビーカステラ</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：初回300円（2個目トッピングから＋50円）</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">1-4　さわだ屋の日常</div>
+                    <div>チュロス</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：チョコ・イチゴ350円、砂糖250円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">1-5　はじける高杉</div>
+                    <div>ポップコーン</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：150円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">1-6　吉井の漢焼きおにぎり</div>
+                    <div>焼きおにぎり</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：醤油300円、バター350円、ガーリックバター350円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">1-7　横溝BangBang</div>
+                    <div>射的</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：2発100円、7発300円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">1-8　ムラタピロシ飲料</div>
+                    <div>タピオカ</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：M250円、L300円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">2-1　あやぽて</div>
+                    <div>フライドポテト</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：300円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">2-2　よしみんのとけない夢</div>
+                    <div>アイスクリーム</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：シングル200円、トッピング・ダブル+50円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">2-3　山と氷とまゆこのとなり</div>
+                    <div>かき氷</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：200円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">2-4　いりえんち</div>
+                    <div>ジュース</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：1回目200円、2回目から50円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">2-5　JUNTREE</div>
+                    <div>飲み物</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：1杯180円、トッピング50円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">2-6　ナカタヘルニア肉店〜腰にくる旨さ〜</div>
+                    <div>焼肉</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：ジンギスカン400円、焼き鳥(2本)200円、(4本)350円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">3-1　Verry Berry げんき</div>
+                    <div>けずりいちご</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：ノーマル250円、トッピング300~350円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">3-2　ちばんくふると</div>
+                    <div>フランクフルト</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：300円、400円、450円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">3-3　南部製麺</div>
+                    <div>うどん</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：300円、350円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">3-4　ソースの香る谷津亭</div>
+                    <div>焼きそば</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：300円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">3-5　ジョイフルJK</div>
+                    <div>ライスバーガー</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：300円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">3-6　小原すいたら　腹ぺこはらの焼き鳥焼きけーた　〜感謝を述べて〜</div>
+                    <div>焼き鳥</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：ねぎま250円、もも肉250円、鶏皮250円、小原mix300円</div>
+                </div>
+                <div class="festival-item">
+                    <div class="festival-title">3-7　いきなり！なおき</div>
+                    <div>焼肉</div>
+                    <div style="margin-top: 10px; color: #666; font-size: 1.1rem;">価格：ジンギスカン300円、牛カルビ400円</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="section">
+            <div class="card scroll-animate">
+                <h2>📢 お知らせ</h2>
+                <div class="news-item">
+
+                    <div><strong>熱中症対策について</strong><br>
+                    気温が上がることが予想されます。暑さ対策を各自徹底してください。</div>
+                </div>
+
+                <div class="news-item">
+
+                    <div><strong>雨天時の対応</strong><br>
+                    屋外イベントは体育館・教室に変更となります。開催は予定通り行います。</div>
+                </div>
+
+
+
+            </div>
+
+            <!-- <div class="card scroll-animate">
+                <h2>🎉 今年の見どころ</h2>
+                <div class="news-item">
+                    <div class="news-date">NEW!</div>
+                    <div><strong>大谷塾展示</strong><br>
+                    小原先生の展示、OSEの</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">話題</div>
+                    <div><strong>軽音楽部</strong><br>
+                    今年のライブ。</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">注目</div>
+                    <div><strong>書道部</strong><br>
+                    書道パフォーマンス！</div>
+                </div>
+            </div> -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 帯広大谷高等学校 Ohtani School Engineering</p>
+        <p>大谷色に染まれ〜Shine like star〜✨</p>
+    </footer>
+
+    <script>
+        function showSection(sectionName) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(sectionName).classList.add('active');
+            event.target.classList.add('active');
+
+            setTimeout(() => {
+                const activeSection = document.getElementById(sectionName);
+                const items = activeSection.querySelectorAll('.schedule-item, .festival-item, .news-item, .price-item');
+                items.forEach((item, index) => {
+                    item.style.animation = 'none';
+                    item.offsetHeight;
+                    item.style.animation = null;
+                });
+            }, 100);
+        }
+
+        // スクロールアニメーション
+        const observeElements = () => {
+            const elements = document.querySelectorAll('.scroll-animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(el => observer.observe(el));
+        };
+
+        // ページ読み込み時に実行
+        document.addEventListener('DOMContentLoaded', observeElements);
+    </script>
+</body>
+</html>
