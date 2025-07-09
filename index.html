@@ -471,8 +471,7 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
         }
-        
-        .result-culture-item {
+        .result-item {
             background: white;
             border: 2px solid #e8e8e8;
             padding: 25px;
@@ -485,154 +484,22 @@
             animation: newsFloat 0.6s ease-out forwards;
         }
 
-        .result-culture-item:nth-child(1) { animation-delay: 0.1s; }
-        .result-culture-item:nth-child(2) { animation-delay: 0.3s; }
-        .result-culture-item:nth-child(3) { animation-delay: 0.5s; }
+        .result-item:nth-child(1) { animation-delay: 0.1s; }
+        .result-item:nth-child(2) { animation-delay: 0.3s; }
+        .result-item:nth-child(3) { animation-delay: 0.5s; }
 
         @keyframes newsFloat {
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .result-culture-item:hover {
+        .result-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             border-left-width: 10px;
             transition: all 0.3s ease;
         }
 
-        .result-culture-date {
-            font-size: 1rem;
-            color: #1e3c72;
-            font-weight: bold;
-            margin-bottom: 10px;
-            animation: datePulse 2s ease-in-out infinite;
-        }
-
-        @keyframes datePulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        .contact-info {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin: 30px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-info::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-            animation: patternMove 10s linear infinite;
-        }
-
-        @keyframes patternMove {
-            0% { transform: translateX(0) translateY(0); }
-            100% { transform: translateX(100px) translateY(100px); }
-        }
-
-        footer {
-            background: #000000;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 80px;
-            position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #2a5298, transparent);
-            animation: footerLine 3s ease-in-out infinite;
-        }
-
-        @keyframes footerLine {
-            0%, 100% { transform: scaleX(0); }
-            50% { transform: scaleX(1); }
-        }
-
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .scroll-animate.in-view {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2.5rem;
-            }
-            
-            .nav-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-            
-            .nav-btn {
-                width: 200px;
-            }
-            
-            .card {
-                padding: 25px;
-            }
-
-            .day-card {
-                padding: 20px;
-            }
-        }
-        @keyframes datePulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        
-        .result-sports-item {
-            background: white;
-            border: 2px solid #e8e8e8;
-            padding: 25px;
-            border-radius: 12px;
-            margin: 20px 0;
-            border-left: 6px solid #000000;
-            position: relative;
-            transform: translateY(20px);
-            opacity: 0;
-            animation: newsFloat 0.6s ease-out forwards;
-        }
-
-        .result-sports-item:nth-child(1) { animation-delay: 0.1s; }
-        .result-sports-item:nth-child(2) { animation-delay: 0.3s; }
-        .result-sports-item:nth-child(3) { animation-delay: 0.5s; }
-
-        @keyframes newsFloat {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .result-sports-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            border-left-width: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .result-sports-date {
+        .result-date {
             font-size: 1rem;
             color: #1e3c72;
             font-weight: bold;
@@ -989,89 +856,83 @@
                 </div>
         </section>
                 
-      <section id="result-culture" class="section">
+                <section id="result" class="section">
             <div class="card scroll-animate">
-                <h2>🏆 結果（文化祭）</h2>
-                <div class="result-culture-item">
+                <h2>🏆 結果</h2>
+                <div class="result-item">
                     <h3>垂れ幕</h3>
-                    <div class="resultculture-item">
+                    <div class="result-item">
                             <p><strong>1年生部門</strong></p>
                             <p>🥇 最優秀賞: 7組</p>
                             <p>🥈 優秀賞: 5組</p>
                             <p>🥉 優良賞: 8組</p>
                     </div>
-                    <div class="result-culture-item">
+                    <div class="result-item">
                             <p><strong>2年生部門</strong></p>
                             <p>🥇 最優秀賞：6組</p>
                             <p>🥈 優秀賞：5組</p>
                             <p>🥉 優良賞：4組</p>
                     </div>
-                    <div class="result-culture-item">
+                    <div class="result-item">
                             <p><strong>3年生部門</strong></p>
                             <p>🥇 最優秀賞：5組</p>
                             <p>🥈 優秀賞：2組</p>
                             <p>🥉 優良賞：7組</p>
                     </div>
                 </div>
-                <div class="result-culture-item">
+                <div class="result-item">
                 <h3>クラス展示</h3>
-                <div class="result-culture-item">
+                <div class="result-item">
                             <p><strong>1年生部門</strong></p>
                             <p>🥇 最優秀賞: 6組</p>
                             <p>🥈 優秀賞: 1組</p>
                             <p>🥉 優良賞: 8組</p>
                     </div>
-                    <div class="result-culture-item">
+                    <div class="result-item">
                             <p><strong>2年生部門</strong></p>
                             <p>🥇 最優秀賞：5組</p>
                             <p>🥈 優秀賞：1組</p>
                             <p>🥉 優良賞：3組</p>
                     </div>
-                    <div class="result-culture-item">
+                    <div class="result-item">
                             <p><strong>3年生部門</strong></p>
                             <p>🥇 最優秀賞：6組</p>
                             <p>🥈 優秀賞：7組</p>
                             <p>🥉 優良賞：3組</p>
                     </div>
                 </div>
-                <div class="result-culture-item">
+                <div class="result-item">
                 <h3>仮装ダンス</h3>
-                <div class="result-culture-item">
+                <div class="result-irtem">
                             <p>🥇 最優秀賞: 3年3組</p>
                             <p>🥈 優秀賞: 3年7組</p>
                             <p>🥉 優良賞: 3年2組、3年4組</p>
                  </div>
                  </div>
-                 <div class="result-culture-item">
+                                <div class="result-item">
                 <h3>総合</h3>
-                <div class="result-culture-item">
+                <div class="result-item">
                             <p><strong>総合部門</strong></p>
                             <p>🥇 優勝: 3年7組</p>
                             <p>🥈 準優勝: 3年5組</p>
                             <p>🥉 3位: 3年2組</p>
                     </div>
-                    <div class="result-culture-item">
+                    <div class="result-item">
                             <p><strong>1年生部門</strong></p>
                             <p>🥇 優勝：7組</p>
                             <p>🥈 準優勝：5組</p>
                             <p>🥉 3位：6組</p>
                     </div>
-                    <div class="result-culture-item">
+                    <div class="result-item">
                             <p><strong>2年生部門</strong></p>
                             <p>🥇 優勝：5組</p>
                             <p>🥈 準優勝：6組</p>
                             <p>🥉 3位：1組</p>
                     </div>
                 </div>
-            </div>
-        </section> 
-        
-         <section id="result-sports" class="section">
-            <div class="card scroll-animate">
-                <h2>🏆 結果（体育祭）</h2>
-            </div>
-         </section>
-     </main>
+         </div>
+</section> 
+            </main>
 
 
     <footer>
